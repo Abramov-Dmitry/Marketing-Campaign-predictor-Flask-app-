@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Marketing Campaign</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body style="background: rgb(252, 250, 250);">
+  <div class="login">
+   <h1 style="text-align:center">Прогнозатор примет ли клиент предложение</h1>
+    <form action="{{ url_for('predict')}}" method="post">
+			
+			<!-- Ввод данных -->
+			<!-- Семейное положение [Marital_Status] -->
+      <label for="Marital_Status" colo>Семейное положение:  </label>
+      <select id="Marital_Status" name="Marital_Status", placeholder="Семейное положение", required="required">
+        <option value="0">Одинокий</option>
+        <option value="1">В отношениях</option>
+      </select>
+			<br>
+			<br>
+			
+			<!-- Зарплата [Income] -->
+			<label for="Income">Зарплата:  </label>
+      <input type="number" name="Income" placeholder="Зарплата" required="required">
+      <br>
+      <br>
+      
+			<!-- Время с последней покупки в днях [Recency] -->
+			<label for="Recency">Количество дней с последней покупки:  </label>
+      <input type="number" name="Recency" placeholder="Количество дней с последней покупки" required="required">
+      <br>
+      <br>
+
+			<!-- Траты на мясные продукты [MntMeatProducts] -->
+			<label for="MntMeatProducts"> Траты на мясные продукты за последние два года: </label>
+			<input type="number" name="MntMeatProducts" placeholder="Траты на мясные продукты за 2 года" required="required">
+			<br>
+			<br>
+
+			<!-- Количество покупок через каталог [NumCatalogPurnaches] -->
+			<label for="NumCatalogPurnaches"> Количество покупок через каталог: </label>
+			<input type="number" name="NumCatalogPurnaches" placeholder="Количество покупок через каталог" required="required">
+			<br>
+			<br>
+
+			<!-- Принял ли предложение 1 компании [AcceptedCmp1] -->
+			<label for="AcceptedCmp1"> Принял ли предложение 1 компании: </label>
+			<select id="AcceptedCmp1" name="AcceptedCmp1", placeholder="Статус предложения 1 компании", required="required">
+        <option value="0">Нет</option>
+        <option value="1">Да</option>
+      </select>
+			<br>
+			<br>
+
+			<!-- Принял ли предложение 2 компании [AcceptedCmp2] -->
+			<label for="AcceptedCmp2"> Принял ли предложение 2 компании: </label>
+			<select id="AcceptedCmp2" name="AcceptedCmp2", required="required">
+        <option value="0">Нет</option>
+        <option value="1">Да</option>
+      </select>
+			<br>
+			<br>
+
+			<!-- Принял ли предложение 3 компании [AcceptedCmp3] -->
+			<label for="AcceptedCmp3"> Принял ли предложение 3 компании: </label>
+			<select id="AcceptedCmp3" name="AcceptedCmp3", placeholder="Статус предложения 3 компании", required="required">
+        <option value="0">Нет</option>
+        <option value="1">Да</option>
+      </select>
+			<br>
+			<br>
+
+			<!-- Принял ли предложение 4 компании [AcceptedCmp4] -->
+			<label for="AcceptedCmp4"> Принял ли предложение 4 компании: </label>
+			<select id="AcceptedCmp4" name="AcceptedCmp4", placeholder="Статус предложения 4 компании", required="required">
+        <option value="0">Нет</option>
+        <option value="1">Да</option>
+      </select>
+			<br>
+			<br>
+
+			<!-- Принял ли предложение 5 компании [AcceptedCmp5] -->
+			<label for="AcceptedCmp5"> Принял ли предложение 5 компании: </label>
+			<select id="AcceptedCmp5" name="AcceptedCmp5", placeholder="Статус предложения 5 компании", required="required">
+        <option value="0">Нет</option>
+        <option value="1">Да</option>
+      </select>
+			<br>
+			<br>
+
+			<!-- Количество лет после регистрации [Years_registered] -->
+			<label for="Years_registered"> Сколько лет зарегистрирован: </label>
+			<select id="Years_registered" name="Years_registered", placeholder="Количество лет с регистрации", required="required">
+        <option value="0">0</option>
+        <option value="1">1</option>
+				<option value="1">2</option>
+      </select>
+			<br>
+			<br>
+
+			<!-- Есть ли дети(бинарный признак) [Have_child] -->
+			<label for="Have_child"> Есть ли дети: </label>
+			<select id="Have_child" name="Have_child", placeholder="Есть ли дети", required="required">
+        <option value="0">Нет</option>
+        <option value="1">Да</option>
+      </select>
+			<br>
+			<br>
+			
+			<!-- Количество детей [Number_childs]-->
+			<label for="Number_childs"> Сколько детей: </label>
+			<input type="number" name="Number_childs", placeholder="Количество детей", required="required">
+			<br> 
+			<br>
+
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Предсказать принял ли клиент предложение</button>
+    </form>
+    <br>
+    <br>
+    <h2>
+    {{ prediction_text }}
+    </h2>
+  </div>
+</body>
+</html>
